@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مدير تيليجرام</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#090b10;color:#fff;font-family:Arial,sans-serif;padding:20px}
+header{padding:20px;background:#151922;border:1px solid #b58b42;border-radius:15px}
+h1{color:#d7ad59;margin:0 0 8px}
+p{color:#aaa}
+section{background:#151922;padding:18px;border-radius:14px;margin-top:18px}
+input{width:100%;padding:14px;border-radius:9px;border:1px solid #555;background:#0b0e14;color:white;margin:10px 0}
+button{padding:12px 18px;background:#bd9348;color:#111;border:0;border-radius:8px;font-weight:bold;margin:5px;cursor:pointer}
+.post{border:1px solid #444;padding:15px;border-radius:12px;margin-top:12px}
+small{color:#aaa}
+</style>
+</head>
+<body>
+<header>
+<h1>مدير تيليجرام</h1>
+<p>لوحة إدارة القنوات والمنشورات</p>
+</header>
+
+<section>
+<h3>إضافة قناة عامة</h3>
+<input id="channel" placeholder="رابط القناة العامة">
+<button onclick="addChannel()">إضافة القناة</button>
+<div id="channels"></div>
+</section>
+
+<section>
+<h3>القنوات المضافة</h3>
+<div id="posts">
+<p>أضف رابط قناة للبدء.</p>
+</div>
+</section>
+
+<section>
+<h3>إدارة الحسابات</h3>
+<p>ستتم إضافة ربط الحسابات بعد إعداد الخادم الآمن.</p>
+</section>
+
+<script>
+function addChannel(){
+let input=document.getElementById('channel');
+let link=input.value.trim();
+if(!link)return alert('أدخل رابط القناة');
+let item=document.createElement('div');
+item.className='post';
+item.textContent=link;
+document.getElementById('channels').appendChild(item);
+input.value='';
+}
+</script>
+</body>
+</html>
